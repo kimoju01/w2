@@ -1,6 +1,6 @@
-package com.study.jdbcex2.dao;
+package com.study.w2.dao;
 
-import com.study.jdbcex2.domain.TodoVO;
+import com.study.w2.domain.TodoVO;
 import lombok.Cleanup;
 
 import java.sql.Connection;

@@ -1,7 +1,7 @@
 package dao;
 
-import com.study.jdbcex2.dao.TodoDAO;
-import com.study.jdbcex2.domain.TodoVO;
+import com.study.w2.dao.TodoDAO;
+import com.study.w2.domain.TodoVO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

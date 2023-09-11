@@ -1,4 +1,4 @@
-package com.study.jdbcex2.util;
+package com.study.w2.util;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;

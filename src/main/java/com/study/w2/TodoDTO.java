@@ -1,4 +1,4 @@
-package com.study.jdbcex2;
+package com.study.w2;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,10 +1,10 @@
-package com.study.jdbcex2.service;
+package com.study.w2.service;
 
 
-import com.study.jdbcex2.TodoDTO;
-import com.study.jdbcex2.dao.TodoDAO;
-import com.study.jdbcex2.domain.TodoVO;
-import com.study.jdbcex2.util.MapperUtil;
+import com.study.w2.TodoDTO;
+import com.study.w2.dao.TodoDAO;
+import com.study.w2.domain.TodoVO;
+import com.study.w2.util.MapperUtil;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 

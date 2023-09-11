@@ -1,4 +1,4 @@
-package com.study.jdbcex2.dao;
+package com.study.w2.dao;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

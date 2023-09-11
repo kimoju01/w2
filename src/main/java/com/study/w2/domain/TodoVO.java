@@ -1,4 +1,4 @@
-package com.study.jdbcex2.domain;
+package com.study.w2.domain;
 
 import lombok.*;
 

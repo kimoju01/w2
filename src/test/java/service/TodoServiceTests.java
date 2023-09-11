@@ -1,14 +1,12 @@
 package service;
 
-import com.study.jdbcex2.TodoDTO;
-import com.study.jdbcex2.domain.TodoVO;
-import com.study.jdbcex2.service.TodoService;
+import com.study.w2.TodoDTO;
+import com.study.w2.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Log4j2
 public class TodoServiceTests {

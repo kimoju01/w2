@@ -1,6 +1,6 @@
-package com.study.jdbcex2.controller;
+package com.study.w2.controller;
 
-import com.study.jdbcex2.service.TodoService;
+import com.study.w2.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ServletException;
