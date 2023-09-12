@@ -1,6 +1,6 @@
 package service;
 
-import com.study.w2.TodoDTO;
+import com.study.w2.dto.TodoDTO;
 import com.study.w2.service.TodoService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;

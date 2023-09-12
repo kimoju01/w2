@@ -1,7 +1,7 @@
 package com.study.w2.service;
 
 
-import com.study.w2.TodoDTO;
+import com.study.w2.dto.TodoDTO;
 import com.study.w2.dao.TodoDAO;
 import com.study.w2.domain.TodoVO;
 import com.study.w2.util.MapperUtil;
