@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.UUID;
 
 @WebServlet("/login")
 @Log4j2
@@ -36,12 +37,27 @@ public class LoginController extends HttpServlet {
         String mid = req.getParameter("mid");
         String mpw = req.getParameter("mpw");
 
+        // 자동 로그인 체크박스가 on 인지 확인
+        String auto = req.getParameter("auto");
+        boolean rememberMe = auto != null && auto.equals("on");
+
         // 사용자의 mid와 mpw를 수집해 이를 이용해 문자열 구성 (나중엔 DTO로 변경)
 //        String str = mid + mpw;
 
         try {
             // 정상적으로 변경된 경우에는 HttpSession을 이용해서 loginInfo 이름으로 객체 저장
             MemberDTO memberDTO = MemberService.INSTANCE.login(mid, mpw);
+
+            // 로그인 후 rememberMe가 true라면 UUID를 이용해 임의의 번호 생성
+            if(rememberMe) {
+                String uuid = UUID.randomUUID().toString();
+
+                MemberService.INSTANCE.updateUuid(mid, uuid);
+                memberDTO.setUuid(uuid);
+
+                log.info("uuid: " + uuid);
+            }
+
             HttpSession session = req.getSession();
             // 세션에 loginInfo 이름의 속성으로 memberDTO 값을 보관. key=loginInfo, value=memberDTO
             session.setAttribute("loginInfo", memberDTO);
