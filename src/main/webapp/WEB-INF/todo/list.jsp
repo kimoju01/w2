@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Hyeju
@@ -7,12 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Todo List</title>
 </head>
 <body>
 <h1>Todo List</h1>
+
+<!-- 로그인한 유저 정보 보여주기 -->
+<h2>${loginInfo}</h2>
+<h3>${loginInfo.mname}</h3>
 
 <!-- 리스트 -->
     <ul>
