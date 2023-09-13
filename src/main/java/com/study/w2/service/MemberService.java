@@ -35,4 +35,13 @@ public enum MemberService {
 
     }
 
+    // uuid 값으로 사용자 찾기
+    public MemberDTO getByUuid(String uuid) throws Exception {
+
+        MemberVO memberVO = dao.selectUuid(uuid);
+        MemberDTO memberDTO = modelMapper.map(memberVO, MemberDTO.class);
+
+        return memberDTO;
+    }
+
 }

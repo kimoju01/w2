@@ -7,10 +7,7 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -44,8 +41,8 @@ public class LoginController extends HttpServlet {
         // 사용자의 mid와 mpw를 수집해 이를 이용해 문자열 구성 (나중엔 DTO로 변경)
 //        String str = mid + mpw;
 
+        // 정상적으로 로그인 된 경우에는 HttpSession을 이용해서 loginInfo 이름으로 객체 저장
         try {
-            // 정상적으로 변경된 경우에는 HttpSession을 이용해서 loginInfo 이름으로 객체 저장
             MemberDTO memberDTO = MemberService.INSTANCE.login(mid, mpw);
 
             // 로그인 후 rememberMe가 true라면 UUID를 이용해 임의의 번호 생성
@@ -55,7 +52,14 @@ public class LoginController extends HttpServlet {
                 MemberService.INSTANCE.updateUuid(mid, uuid);
                 memberDTO.setUuid(uuid);
 
-                log.info("uuid: " + uuid);
+                // remember-me 이름의 쿠키 생성 후 전송
+                Cookie rememberCookie = new Cookie("remember-me", uuid);
+                rememberCookie.setPath("/");
+                // remember-me 쿠키 유효기간은 1주일
+                rememberCookie.setMaxAge(60*60*24*7);
+
+                resp.addCookie(rememberCookie);
+
             }
 
             HttpSession session = req.getSession();

@@ -51,4 +51,28 @@ public class MemberDAO {
         preparedStatement.executeUpdate();
 
     }
+
+    // uuid 값으로 사용자 정보 select 하기
+    public MemberVO selectUuid(String uuid) throws Exception {
+
+        String sql = "select mid, mpw, mname, uuid from tbl_member where uuid = ?";
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, uuid);
+
+        @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+
+        MemberVO memberVO = MemberVO.builder()
+                .mid(resultSet.getString("mid"))
+                .mpw(resultSet.getString("mpw"))
+                .mname(resultSet.getString("mname"))
+                .uuid(resultSet.getString("uuid"))
+                .build();
+
+        return memberVO;
+
+    }
 }
