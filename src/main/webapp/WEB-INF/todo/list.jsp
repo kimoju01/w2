@@ -14,6 +14,8 @@
 <body>
 <h1>Todo List</h1>
 
+<!-- ServletContext의 appName -->
+<h2>${appName}</h2>
 <!-- 로그인한 유저 정보 보여주기 -->
 <h2>${loginInfo}</h2>
 <h3>${loginInfo.mname}</h3>
